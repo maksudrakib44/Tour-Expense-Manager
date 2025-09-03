@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Expense Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tour Expense Manager</h1>
+            <p class="subtitle">Track and split expenses equally among your travel group</p>
+        </header>
+        
+        <div class="summary-cards">
+            <div class="summary-card balance">
+                <h3>TOTAL BALANCE</h3>
+                <div class="amount" id="total-balance">$0.00</div>
+            </div>
+            <div class="summary-card total-expenses">
+                <h3>TOTAL EXPENSES</h3>
+                <div class="amount" id="total-expenses">$0.00</div>
+            </div>
+            <div class="summary-card per-person">
+                <h3>PER PERSON COST</h3>
+                <div class="amount" id="per-person">$0.00</div>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="expenses">Expenses</div>
+            <div class="tab" data-tab="people">People</div>
+            <div class="tab" data-tab="settlements">Settlements</div>
+        </div>
+        
+        <div class="tab-content active" id="expenses-tab">
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Add Expense</h2>
+                    <form id="expense-form">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" id="description" class="form-control" placeholder="Dinner, Hotel, Tickets, etc." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" id="amount" class="form-control" placeholder="0.00" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paid-by">Paid By</label>
+                            <select id="paid-by" class="form-control" required>
+                                <option value="">Select Person</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Add Expense</button>
+                    </form>
+                </div>
+                
+                <div class="card">
+                    <h2>Add Deposit</h2>
+                    <form id="deposit-form">
+                        <div class="form-group">
+                            <label for="deposit-description">Description (optional)</label>
+                            <input type="text" id="deposit-description" class="form-control" placeholder="Advance deposit">
+                        </div>
+                        <div class="form-group">
+                            <label for="deposit-amount">Amount</label>
+                            <input type="number" id="deposit-amount" class="form-control" placeholder="0.00" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deposited-by">Deposited By</label>
+                            <select id="deposited-by" class="form-control" required>
+                                <option value="">Select Person</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Add Deposit</button>
+                    </form>
+                </div>
+                
+                <div class="card">
+                    <h2>Recent Transactions</h2>
+                    <div id="transactions-list" class="transaction-list">
+                        <div class="empty-state">
+                            <i class="fas fa-receipt"></i>
+                            <p>No transactions yet</p>
+                            <p>Add your first expense or deposit to get started</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="people-tab">
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Add Person</h2>
+                    <form id="person-form">
+                        <div class="form-group">
+                            <label for="person-name">Name</label>
+                            <input type="text" id="person-name" class="form-control" placeholder="Enter person's name" required>
+                        </div>
+                        <button type="submit" class="btn">Add Person</button>
+                    </form>
+                    
+                    <div class="import-export">
+                        <button class="btn btn-success" id="export-btn">Export Data</button>
+                        <button class="btn btn-danger" id="import-btn">Import Data</button>
+                        <input type="file" id="import-file" accept=".json" style="display: none;">
+                        <button class="btn btn-warning" id="reset-btn">Reset All Data</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Group Members</h2>
+                    <div id="people-list" class="people-list">
+                        <div class="empty-state">
+                            <i class="fas fa-users"></i>
+                            <p>No people added yet</p>
+                            <p>Add people to your group</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="settlements-tab">
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Balance Summary</h2>
+                    <div id="balance-list" class="people-list">
+                        <div class="empty-state">
+                            <i class="fas fa-balance-scale"></i>
+                            <p>No balance data</p>
+                            <p>Add expenses to see balances</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Settlement Suggestions</h2>
+                    <div id="settlement-list" class="settlement-list">
+                        <div class="empty-state">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <p>No settlements needed</p>
+                            <p>When balances exist, we'll suggest settlements here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Maksud © 2025 | Made for personal uses </p>
+        </footer>
+    </div>
+    
+    <div class="notification" id="notification">
+        <span id="notification-text"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
