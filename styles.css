@@ -33,9 +33,11 @@ body {
 }
 
 header {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     margin-bottom: clamp(15px, 3vw, 25px);
-    padding: clamp(15px, 3vw, 20px) clamp(20px, 4vw, 30px);
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px); /* Adjusted padding for logo */
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     position: relative;
     overflow: hidden;
@@ -65,6 +67,19 @@ header:hover {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
+}
+
+.logo {
+    max-width: clamp(30px, 6vw, 50px); /* Smaller, responsive logo size */
+    height: auto;
+    margin-right: clamp(20px, 2vw, 20px); /* Space between logo and text */
+    vertical-align: top; /* Align to top for corner placement */
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 h1 {
