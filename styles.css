@@ -40,7 +40,7 @@ header {
     padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px); /* Adjusted padding for logo */
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Ensure no overflow hiding */
     width: 100%; /* Full container width */
     left: 50%;
     transform: translateX(-50%); /* Center the header properly */
@@ -85,21 +85,22 @@ header:hover {
 h1 {
     color: white;
     margin-bottom: clamp(5px, 1.5vw, 8px);
-    font-size: clamp(1.6rem, 5vw, 2.5rem);
+    font-size: clamp(1.2rem, 5vw, 2.5rem); /* Reduced min size for mobile */
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%; /* Prevent text overflow */
+    white-space: normal; /* Allow text wrapping */
+    overflow: visible; /* Ensure full text is visible */
+    text-overflow: clip;
+    max-width: 70%; /* Limit width for mobile readability */
 }
 
 .subtitle {
     color: rgba(255, 255, 255, 0.85);
-    font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+    font-size: clamp(0.7rem, 2.5vw, 1.1rem); /* Adjusted min size for mobile */
     position: relative;
     z-index: 1;
+    white-space: normal; /* Allow text wrapping */
 }
 
 .dashboard {
