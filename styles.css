@@ -377,11 +377,18 @@ h1 {
 .delete-btn, .edit-btn {
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: clamp(3px, 0.8vw, 4px) clamp(6px, 1.2vw, 8px);
+    border-radius: 3px;
+    padding: clamp(2px, 0.5vw, 3px) clamp(4px, 0.8vw, 6px);
     cursor: pointer;
     transition: background 0.3s, transform 0.3s;
-    font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+    font-size: clamp(0.55rem, 1.2vw, 0.65rem);
+    width: 28px;
+    height: 22px;
+    display: inline-flex; /* Changed to inline-flex */
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0 2px; /* Added horizontal margin */
 }
 
 .delete-btn {
@@ -389,7 +396,7 @@ h1 {
 }
 
 .delete-btn:hover {
-    background: #c1121f;
+    background: #cd0f35;
     transform: translateY(-1px);
 }
 
@@ -400,6 +407,38 @@ h1 {
 .edit-btn:hover {
     background: #f48c06;
     transform: translateY(-1px);
+}
+
+/* Ensure buttons stay horizontal in all views */
+.transaction-actions {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .delete-btn, .edit-btn {
+        padding: clamp(1px, 0.4vw, 2px) clamp(3px, 0.6vw, 4px);
+        font-size: clamp(0.5rem, 1.1vw, 0.6rem);
+        width: 26px;
+        height: 20px;
+        margin: 0 1px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .delete-btn, .edit-btn {
+        padding: 1px 2px;
+        font-size: 0.5rem;
+        width: 24px;
+        height: 18px;
+    }
+    
+    .transaction-actions {
+        gap: 3px;
+    }
 }
 
 .people-list {
