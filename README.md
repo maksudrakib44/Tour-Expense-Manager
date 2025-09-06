@@ -26,7 +26,7 @@ Check out the live version: [[https://yourusername.github.io/tour-manager/](http
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/tour-manager.git
+   git clone https://github.com/maksudrakib44/tour-manager.git
    ```
    *(Replace `yourusername` and `tour-manager` with your actual GitHub username and repository name.)*
 
@@ -70,11 +70,6 @@ Contributions are welcome! To contribute:
 ## License
 
 This project is for personal use only and is not licensed for commercial distribution. Feel free to use and modify it for your own travel expense tracking needs.
-
-## Acknowledgments
-
-- Inspired by the need for a simple expense-sharing tool for group trips.
-- Thanks to Font Awesome for providing free icons.
 
 ## Contact
 
